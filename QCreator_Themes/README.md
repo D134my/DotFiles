@@ -1,3 +1,3 @@
 Dark QCreator
 
-![Alt text](qt.png?raw=true "Title")
+![Alt text](img.png?raw=true "Title")
