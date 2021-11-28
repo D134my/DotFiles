@@ -12,6 +12,7 @@ Plug 'cdelledonne/vim-cmake'
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'bfrg/vim-cpp-modern'
 Plug 'itchyny/lightline.vim'
+Plug 'lilydjwg/colorizer'
 Plug 'jiangmiao/auto-pairs'
 if has("nvim")
 	Plug 'antoinemadec/FixCursorHold.nvim'
@@ -272,4 +273,4 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_quiet_messages = { "type": "style" }
 let g:syntastic_cpp_checkers = ['clang_tidy']
 
-
+set termbidi
