@@ -1,0 +1,73 @@
+
+icons = "awesome"
+
+[[block]]
+block = "sound"
+[[block]]
+block = "custom"
+command = "echo   $(xkblayout-state print %s) "
+interval = 1
+
+[[block]]
+block = "memory"
+display_type = "memory"
+format_mem = "{mem_used_percents}"
+format_swap = "{swap_used_percents}"
+
+[[block]]
+block = "cpu"
+interval = 1
+
+
+[[block]]
+block = "disk_space"
+path = "/"
+info_type = "available"
+
+format = "{icon} {available}"
+alert_absolute = true
+unit = "GB"
+alert = 50
+warning = 40
+
+
+[[block]]
+block = "net"
+device = "wlan0"
+format = "{ssid} "
+interval = 5
+
+
+[[block]]
+block = "battery"
+driver = "upower"
+format = "{percentage} {time}"
+interval = 1
+
+
+[[block]]
+block = "custom"
+command = "echo  $(jdate '+%Y-%m-%d %q')"
+interval = 1
+
+[[block]]
+block = "time"
+interval = 5
+format = "%R"
+
+[theme]
+name = "solarized-dark"
+
+[theme.overrides]
+idle_bg = "#0f1118"
+idle_fg = "#aebdc9"
+info_bg = "#aebdc9"
+info_fg = "#0f1118"
+good_bg = "#9A8073"
+good_fg = "#aebdc9"
+warning_bg = "#3E617D"
+warning_fg = "#0f1118"
+critical_bg = "#475871"
+critical_fg = "#aebdc9"
+alternating_tint_bg = "#0f1118"
+alternating_tint_fg = "#0f1118"
