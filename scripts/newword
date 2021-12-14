@@ -1,0 +1,8 @@
+#!/bin/sh
+
+word=$(echo "" | dmenu -p "add word : " -nb "#000" -nf "#FFF" -sb "#fFF" -sf "#233")
+meaning=$(echo "" | dmenu -p "add meaning : " -nb "#000" -nf "#FFF" -sb "#fFF" -sf "#233")
+echo "$word | $meaning" >> ~/.local/share/words.txt
+
+#add this to your .zshrc
+#shuf -n 1 ~/.local/share/words.txt

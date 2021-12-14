@@ -1,0 +1,20 @@
+LIBRARY="$HOME/Documents/books/"
+
+function display() {
+  books=$(find $LIBRARY | grep "\.epub\|\.pdf")
+  books=${books//$LIBRARY/"~"}
+
+  line=$(echo "$books" | dmenu -l 15 -i -p "Book: " -nb "#000" -nf "#FFF" -sb "#fFF" -sf "#233")
+
+
+  exit_code=$?
+
+  line="${line/\~/$LIBRARY}"
+
+  if [ $exit_code == 0 ]; then
+    okular "${line}"
+    echo "$line"
+  fi
+}
+
+display
