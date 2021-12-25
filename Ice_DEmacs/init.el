@@ -19,11 +19,12 @@
        ;;layout            ; auie,ctsrnm is the superior home row
 
        :completion
-       (company +lsp
-			 +icons
-			 +childframe
-     ;;                   +auto
-				)           ; the ultimate code completion backend
+;;      (company +lsp
+;;			 +icons
+;;			 +childframe
+                        ;;+auto
+
+;;				)           ; the ultimate code completion backend
        ;;helm              ; the *other* search engine for love and life
        ;;ido               ; the other *other* search engine...
        ;;ivy               ; a search engine for love and life
@@ -45,7 +46,7 @@
        ;;neotree           ; a project drawer, like NERDTree for vim
        ophints           ; highlight the region an operation acts on
        (popup +defaults)   ; tame sudden yet inevitable temporary windows
-       tabs              ; a tab bar for Emacs
+       ;;tabs              ; a tab bar for Emacs
        treemacs          ; a project drawer, like neotree but cooler
        ;;unicode           ; extended unicode support for various languages
        vc-gutter         ; vcs diff in the fringe
@@ -120,8 +121,6 @@
        ;;agda              ; types of types of types of types...
        ;;beancount         ; mind the GAAP
        (cc +lsp
-		   +eglot
-		   
 		   )               ; C > C++ == 1
        ;;clojure           ; java with a lisp
        ;;common-lisp       ; if you've seen one lisp, you've seen them all
@@ -159,7 +158,7 @@
        ;;nim               ; python + lisp at the speed of c
        ;;nix               ; I hereby declare "nix geht mehr!"
        ;;ocaml             ; an objective camel
-       org               ; organize your plain life in plain text
+       (org +pretty)              ; organize your plain life in plain text
        ;;php               ; perl's insecure younger brother
        ;;plantuml          ; diagrams for confusing people more
        ;;purescript        ; javascript, but functional

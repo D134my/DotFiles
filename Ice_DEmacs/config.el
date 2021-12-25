@@ -30,6 +30,9 @@
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/")
 (setq confirm-kill-emacs nil)
+(use-package! all-the-icons)
+
+
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -73,7 +76,7 @@ lsp-ui-flycheck-enable t))
 ;;  :group 'lsp-ui-sideline)
 				
 
- 
+(setq! tab-always-indent 'complete)
 
 ;;(setq display-line-numbers-type t)
 ;;(setq lsp-enable-symbol-highlighting t)
@@ -88,18 +91,24 @@ lsp-ui-flycheck-enable t))
 
 ;;(set-eglot-client! 'cc-mode '("clangd" "-j=3" "--clang-tidy"))
 
+;;(add-to-list 'company-backends #'company-tabnine)
 
+ ;; (setq company-format-margin-function #'company-vscode-light-icons-margin)
 (use-package! company-lsp
   :after lsp-mode
   :config
   (setq company-transformers nil company-lsp-cache-candidates nil)
-  (set-company-backend! 'lsp-mode 'company-lsp)
-  )
+ ;; (setq +lsp-company-backends '(company-tabnine company-dabbrev company-capf))
+  (set-company-backend! 'lsp-mode 'company-lsp 'company-ispell)
+ )
 
 
-(after! cc-mode
-  (set-company-backend! 'c++-mode 'lsp-mode 'company-lsp
-						))
+;;(after! cc-mode
+;;  (set-company-backend! 'lsp-mode 'company-lsp
+;;						)
+ ;; (global-company-mode t)
+  ;;(setq company-idle-delay 0)
+	;;)
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
 ;; - `load!' for loading external *.el files relative to this one
@@ -150,11 +159,10 @@ lsp-ui-flycheck-enable t))
    (flycheck-add-next-checker 'lsp 'r-lintr))
 (add-hook 'R-mode-lsp-hook #'my-r-linter-setup)
 
-;; (use-package! flycheck-clang-analyzer
-;;   :init
-;;   (require 'flycheck-clang-analyzer)
-;;   (flycheck-clang-analyzer-setup))
-
+ (use-package! flycheck-clang-analyzer
+   :init
+   (require 'flycheck-clang-analyzer)
+   (flycheck-clang-analyzer-setup))
 
 (use-package! lsp-mode
   :commands lsp
@@ -168,6 +176,14 @@ lsp-ui-flycheck-enable t))
   ;; (setq lsp-project-blacklist '("/CC/"))
   )
 
-  (set-formatter! 'c++-mode 'clang-format)
 
 (setq compile-command "clang++ -std=c++20")
+
+(global-set-key (kbd "C-c l") #'org-store-link)
+(global-set-key (kbd "C-c a") #'org-agenda)
+(global-set-key (kbd "C-c c") #'org-capture)
+
+
+(setq!
+    org-superstar-headline-bullets-list '("⁖" "◉" "○" "✸" "✿")
+)
