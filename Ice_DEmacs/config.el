@@ -24,7 +24,7 @@
 (setq doom-font (font-spec :family "JetBrains Mono Medium" :size 20)
       doom-big-font (font-spec :family "JetBrains Mono Medium" :size 22)
       doom-variable-pitch-font (font-spec :family "JetBrains Mono" :size 20))
-(setq doom-theme 'doom-city-lights)
+(setq doom-theme 'doom-city-lights		)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -91,24 +91,17 @@ lsp-ui-flycheck-enable t))
 
 ;;(set-eglot-client! 'cc-mode '("clangd" "-j=3" "--clang-tidy"))
 
-;;(add-to-list 'company-backends #'company-tabnine)
 
  ;; (setq company-format-margin-function #'company-vscode-light-icons-margin)
-(use-package! company-lsp
-  :after lsp-mode
-  :config
-  (setq company-transformers nil company-lsp-cache-candidates nil)
+;;(use-package! company-lsp
+;;  :after lsp-mode
+;;  :config
+;;  (setq company-transformers nil company-lsp-cache-candidates nil)
  ;; (setq +lsp-company-backends '(company-tabnine company-dabbrev company-capf))
-  (set-company-backend! 'lsp-mode 'company-lsp 'company-ispell)
- )
+;;  (set-company-backend! 'lsp-mode 'company-lsp 'company-ispell)
+ ;;)
 
 
-;;(after! cc-mode
-;;  (set-company-backend! 'lsp-mode 'company-lsp
-;;						)
- ;; (global-company-mode t)
-  ;;(setq company-idle-delay 0)
-	;;)
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
 ;; - `load!' for loading external *.el files relative to this one
@@ -187,3 +180,17 @@ lsp-ui-flycheck-enable t))
 (setq!
     org-superstar-headline-bullets-list '("⁖" "◉" "○" "✸" "✿")
 )
+
+
+(add-hook! nyan-mode
+
+	(setq nyan-bar-length 20)
+  )
+
+(add-to-list 'load-path "~/.emacs.d/.local/elpa/nyan-mode-20200526.1054")
+(require 'nyan-mode)
+(nyan-mode)
+
+(after! doom-modeline
+  (remove-hook 'doom-modeline-mode-hook #'size-indication-mode) )
+
