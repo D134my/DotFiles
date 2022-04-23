@@ -43,7 +43,7 @@ static const int colorfultag        		= 1;  /* 0 means use SchemeSel for selecte
 static const char *colors[][3]  = {
     //               	   fg      bg      border   
     [SchemeNorm]       = { white,  black,  black },
-    [SchemeSel]        = { black,  gray3,   white  },
+    [SchemeSel]        = { black,  cyan,   white  },
     [TabSel]           = { white,   black,  black  },
     [TabNorm]          = { gray3,  black,  red },
     [SchemeTag]        = { gray3,  black,  black },
@@ -63,7 +63,9 @@ static const char *colors[][3]  = {
 
 
 /* ******************** Tags/Workspaces ******************** */
-static char *tags[] = {"I", "II", "III", "IV", "V", "VI", "VII", "VIII"};
+//static char *tags[] = {"I", "II", "III", "IV", "V", "VI", "VII", "VIII"};
+static char *tags[] = {"[1]", "[2]", "[3]", "[4]", "[5]", "[6]", "[7]", "[8]"};
+
 
 static const int tagschemes[] = { SchemeTag1, SchemeTag2, SchemeTag3,
                                   SchemeTag4, SchemeTag5, SchemeTag6,

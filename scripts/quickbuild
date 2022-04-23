@@ -1,3 +1,3 @@
 #!/bin/sh
 
-cmake -Bbuild -H.
+cmake -Bbuild -H. && cd build && make
