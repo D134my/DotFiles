@@ -12,7 +12,7 @@ function display() {
   line="${line/\~/$LIBRARY}"
 
   if [ $exit_code == 0 ]; then
-    okular "${line}"
+    evince "${line}"
     echo "$line"
   fi
 }

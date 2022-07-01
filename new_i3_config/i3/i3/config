@@ -221,9 +221,10 @@ bindsym $mod+r mode "resize"
 #
 #}
 
-
- client.focused          #5f676a  #4D4F4B #262626 #243E4D
-    client.unfocused        #222222 #222222 #aaaaaa #222222
+									#border       #horizontal/vertical border
+ client.focused          #5f676a  #9A6465 #262626 #615665
+									#unfocused
+    client.unfocused        #222222 #446584  #aaaaaa #222222
     client.focused_inactive #222222 #222222 #a9a9a9 #222222
     client.placeholder      #222222 #222222 #aaaaaa #222222
     client.urgent           #d42121 #d42121 #f7f7f7 #d42121
@@ -263,10 +264,9 @@ bindsym $mod+r mode "resize"
 #
 
 
-    for_window [class=".*"] border pixel 0 #*
+    for_window [class=".*"] border pixel 5 #*
 gaps inner 25
-gaps top 55
-#gaps outer 10
+gaps top 50
 
 #exec_always --no-startup-id   xrandr --output eDP1 --off --output DP1 --mode 1920x1080 --pos 1920x0 --rotate left --output HDMI1 --off --output HDMI2 --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off
 #exec_always --no-startup-id xrandr --output eDP1 --off --output DP1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI1 --off --output HDMI2 --mode 1920x1080 --pos 1920x0 --rotate normal --output VIRTUAL1 --off
@@ -275,10 +275,11 @@ gaps top 55
 
 exec --no-startup-id nitrogen --restore
 #exec --no-startup-id /usr/bin/usbcheck
-exec --no-startup-id /home/dreamy/.config/polybar/launch.sh
+#exec --no-startup-id /home/dreamy/.config/polybar/launch.sh
+exec --no-startup-id /home/dreamy/.config/polybar/colorblocks/launch.sh
 exec --no-startup-id /home/dreamy/.screenlayout/mon.sh
 
-exec --no-startup-id /home/dreamy/xborder/xborders --border-width 4 --border-radius 26 --border-rgba aaaaaaaaa
+#exec --no-startup-id /home/dreamy/xborder/xborders --border-width 5 --border-radius 28 --border-rgba aaaaaaaaa
 
 
 bindsym Mod4+comma exec amixer set Master -q 5%-
@@ -312,7 +313,7 @@ bindsym $mod+ctrl+r exec xfce4-terminal -e ranger
 bindsym $mod+ctrl+w exec /usr/bin/xfce4-terminal -e "ttyper -lqt"
 exec --no-startup-id  i3-battery-popup  -n -L 20 
 exec --no-startup-id  picom --experimental-backends -CGb
-border_radius 25
+border_radius 0
 
 exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=ssh,secrets,pkcs11
 
@@ -321,4 +322,4 @@ exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=ssh,secr
 
 for_window [class=".*"] resize set width 32 ppt
 
-
+exec_always --no-startup-id autotiling
